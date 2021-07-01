@@ -16,6 +16,12 @@ function drawGrid() {
       context.lineTo(i * 50, 500);
       context.stroke();
     }
+    for (let i = 0; i <= 10; i++) {
+      context.beginPath();
+      context.moveTo(500, i * 50);
+      context.lineTo(0, i * 50);
+      context.stroke();
+    }
   }
   verticalLines();
 }
