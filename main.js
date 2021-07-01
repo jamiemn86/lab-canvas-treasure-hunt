@@ -7,7 +7,17 @@ const height = canvas.height;
 
 // Iteration 1
 function drawGrid() {
-  // TODO: write the code of the function
+  // TODO: write the code of the function. The grid has 10 x 10 squares and
+  // measures 500 x 500 pixels total
+  function verticalLines() {
+    for (let i = 0; i <= 10; i++) {
+      context.beginPath();
+      context.moveTo(i * 50, 0);
+      context.lineTo(i * 50, 500);
+      context.stroke();
+    }
+  }
+  verticalLines();
 }
 
 function drawEverything() {
