@@ -98,7 +98,9 @@ function drawTreasure() {
     context.drawImage(
       treasureImage,
       treasureAvatar.col * 50,
-      treasureAvatar.row * 50
+      treasureAvatar.row * 50,
+      50,
+      50
     );
   });
 }
