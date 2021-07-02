@@ -28,6 +28,7 @@ function drawGrid() {
   tenLines();
 }
 
+// Iteration 2
 class Character {
   constructor(col, row) {
     this.col = col;
@@ -49,11 +50,27 @@ class Character {
 
 const player = new Character(0, 0); // (0,0) = Initial position
 
+// Testing iteration 2
 player.moveDown(); // Increase by 1 the value of player.row
 player.moveDown(); // Increase by 1 the value of player.row
 player.moveRight(); // Increase by 1 the value of player.col
 
 console.log(player.col, player.row); // => 1,2
+
+// Iteration 3
+function drawPlayer() {
+  const avatar = new Image();
+  avatar.src = '/images/character-down.png';
+  avatar.addEventListener('load', () => {
+    context.drawImage(avatar, player.col * 50, player.row * 50);
+  });
+}
+
+// Testing iteration 3
+player.moveDown(); // Increase by 1 the value of player.row
+player.moveDown(); // Increase by 1 the value of player.row
+player.moveRight(); // Increase by 1 the value of player.col
+drawPlayer();
 
 function drawEverything() {
   drawGrid();
