@@ -79,8 +79,8 @@ class Treasure {
     this.row = row;
   }
   setRandomPosition() {
-    this.col = Math.floor(Math.random() * 11);
-    this.row = Math.floor(Math.random() * 11);
+    this.col = Math.floor(Math.random() * 10);
+    this.row = Math.floor(Math.random() * 10);
   }
 }
 
@@ -112,14 +112,16 @@ document.onkeydown = checkKey;
 function checkKey(e) {
   e = e || window.event;
   if (e.keyCode == '38') {
-    console.log('up');
+    player.moveUp();
   } else if (e.keyCode == '40') {
-    console.log('up');
+    console.log('down');
+    player.moveDown();
   } else if (e.keyCode == '37') {
-    console.log('left');
+    player.moveLeft();
   } else if (e.keyCode == '39') {
-    console.log('right');
+    player.moveRight();
   }
+  drawEverything();
 }
 
 function drawEverything() {
