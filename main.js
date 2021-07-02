@@ -51,11 +51,11 @@ class Character {
 const player = new Character(0, 0); // (0,0) = Initial position
 
 // Testing iteration 2
-player.moveDown(); // Increase by 1 the value of player.row
-player.moveDown(); // Increase by 1 the value of player.row
-player.moveRight(); // Increase by 1 the value of player.col
+// player.moveDown(); // Increase by 1 the value of player.row
+// player.moveDown(); // Increase by 1 the value of player.row
+// player.moveRight(); // Increase by 1 the value of player.col
 
-console.log(player.col, player.row); // => 1,2
+// console.log(player.col, player.row); // => 1,2
 
 // Iteration 3
 function drawPlayer() {
@@ -67,15 +67,46 @@ function drawPlayer() {
 }
 
 // Testing iteration 3
-player.moveDown(); // Increase by 1 the value of player.row
-player.moveDown(); // Increase by 1 the value of player.row
-player.moveRight(); // Increase by 1 the value of player.col
-drawPlayer();
+// player.moveDown(); // Increase by 1 the value of player.row
+// player.moveDown(); // Increase by 1 the value of player.row
+// player.moveRight(); // Increase by 1 the value of player.col
+// drawPlayer();
+
+// Iteration 4
+class Treasure {
+  constructor(col, row) {
+    this.col = col;
+    this.row = row;
+  }
+  setRandomPosition() {
+    this.col = Math.floor(Math.random() * 11);
+    this.row = Math.floor(Math.random() * 11);
+  }
+}
+
+const treasureAvatar = new Treasure(0, 0);
+treasureAvatar.setRandomPosition();
+
+// Testing Treasure class and treasureAvatar. Works as expected and
+// generates random integers between 1 and 10
+console.log(treasureAvatar.col, treasureAvatar.row);
+
+function drawTreasure() {
+  const treasureImage = new Image();
+  treasureImage.src = '/images/treasure.png';
+  treasureImage.addEventListener('load', () => {
+    context.drawImage(
+      treasureImage,
+      treasureAvatar.col * 50,
+      treasureAvatar.row * 50
+    );
+  });
+}
 
 function drawEverything() {
   drawGrid();
-  // drawPlayer()
-  // drawTreasure()
+  drawPlayer();
+  drawTreasure();
 }
 
 drawEverything();
